@@ -7,6 +7,10 @@ def open_github():
     import webbrowser
     webbrowser.open('https://github.com/lucascandev')
 
+# Função para encerrar a aplicação
+def on_close():
+    root.destroy()
+
 # Crio a janela inicial
 root = tk.Tk()
 
@@ -37,6 +41,9 @@ def start_calculator():
 
     # Defino a cor de fundo da janela para um tom escuro de azul
     calc.configure(bg='#2F2E41')
+
+    # Adiciono o comando para encerrar a aplicação quando a janela for fechada
+    calc.protocol("WM_DELETE_WINDOW", on_close)
 
     # Crio um campo de entrada onde serão exibidos os números e resultados
     entry = tk.Entry(calc, width=35, borderwidth=5)
